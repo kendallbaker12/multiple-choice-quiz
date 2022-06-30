@@ -54,13 +54,13 @@ Vue.component("question", {
     template: `
        <div>
         <h2>{{question}}</h2> <br>
-            <input type="radio" id="answer1" v-model='answer'>
+            <input type="radio" name ="favoriteTeacher" id="answer1" v-model='answer1'>
             <label for="answer1">{{answer1}}</label> <br>
-            <input type="radio" id="answer2" v-model='answer'>
+            <input type="radio" id="answer2" name ="favoriteTeacher" v-model='answer2'>
             <label for="answer2">{{answer2}}</label> <br>
-            <input type="radio" id="answer3" v-model='answer'>
+            <input type="radio" id="answer3" name ="favoriteTeacher" v-model='answer'>
             <label for="answer3">{{answer3}}</label> <br>
-            <button v-on:click="pushAnswer()">Submit Questions.</button>
+            <button v-on:click="pushanswer()">Submit Questions.</button>
         </div>
     `,
     data: function () {
@@ -75,7 +75,7 @@ Vue.component("question", {
         "answer1": String,
         "answer2": String,
         "answer3": String,
-        "pushAnswer": Function,
+        "pushanswer": Function,
         "answer": String,
     }
 })
@@ -87,13 +87,13 @@ var app = new Vue({
         // myQuiz: QUIZ,
         page: "title",
         playerScore: 0,
-        answer: [],
+        answer: "",
     },
     methods: {
         toquiz: function () {
             this.page = 'quiz';
         },
-        pushAnswer: function () {
+        pushanswer: function () {
             if (this.answer == "derek") {
                 this.playerScore--;
                 console.log("wrong choice!")
