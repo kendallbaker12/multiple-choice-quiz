@@ -37,11 +37,11 @@ Vue.component("title-page", {
         <button v-on:click= toquiz()>Click Me!</button>
     </div>
     `,
-    data: function() {
+    data: function () {
         return {
         }
     },
-    props:{
+    props: {
         "page": String,
         "toquiz": Function,
     },
@@ -54,26 +54,29 @@ Vue.component("question", {
     template: `
        <div>
         <h2>{{question}}</h2> <br>
-            <input type="radio" id="answer1" @click="pushAnswer">
+            <input type="radio" id="answer1" v-model='answer'>
             <label for="answer1">{{answer1}}</label> <br>
-            <input type="radio" id="answer2">
+            <input type="radio" id="answer2" v-model='answer'>
             <label for="answer2">{{answer2}}</label> <br>
-            <input type="radio" id="answer3">
+            <input type="radio" id="answer3" v-model='answer'>
             <label for="answer3">{{answer3}}</label> <br>
+            <button v-on:click="pushAnswer()">Submit Questions.</button>
         </div>
     `,
     data: function () {
         return {
         }
     },
-    methods: {},
+    methods: {
+
+    },
     props: {
         "question": String,
         "answer1": String,
         "answer2": String,
         "answer3": String,
-        "playerAnswers": Array,
-        "pushAnswer": Function
+        "pushAnswer": Function,
+        "answer": String,
     }
 })
 
@@ -83,10 +86,21 @@ var app = new Vue({
         // to attach your global quiz variable to a data variable:
         // myQuiz: QUIZ,
         page: "title",
+        playerScore: 0,
+        answer: [],
     },
     methods: {
-        toquiz: function(){
+        toquiz: function () {
             this.page = 'quiz';
+        },
+        pushAnswer: function () {
+            if (this.answer == "derek") {
+                this.playerScore--;
+                console.log("wrong choice!")
+            } else {
+                this.playerScore++;
+                console.log("good answer!")
+            }
         },
         // used for showing questions individually
         nextQuestion: function () { },

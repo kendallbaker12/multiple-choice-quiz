@@ -11,28 +11,21 @@
 
         <!-- Title page -->
         <div v-if="page == 'title'" id="title">
-            <title-page v-bind:page="page"
-                        v-bind:toquiz="toquiz"></title-page>
+            <title-page v-bind:page="page" v-bind:toquiz="toquiz"></title-page>
         </div>
 
         <!-- Quiz page -->
         <div v-else-if="page == 'quiz'" id="quiz">
-            <question v-bind:question="'who is the best teacher?'"
+            <question v-bind:question="'who is the best teacher?'" v-bind:answer1="'derek'" v-bind:answer2="'jace'"
+                v-bind:answer3="'DJ'" v-bind:pushAnswer="pushAnswer(answer)"> </question>
+            <question v-bind:question="'who is the best teacher?'" v-bind:answer1="'derek'" v-bind:answer2="'jace'"
+                v-bind:answer3="'DJ'" v-bind:pushAnswer="pushAnswer(answer)"> </question>
+            <question v-bind:question="'who is the best teacher?'" v-bind:answer1="'derek'" v-bind:answer2="'jace'"
+                v-bind:answer3="'DJ'" v-bind:pushAnswer="pushAnswer(answer)"> </question>
+            <!-- <question v-bind:question="'who is the best teacher?'"
             v-bind:answer1="'derek'"
             v-bind:answer2="'jace'"
-            v-bind:answer3="'DJ'"> </question>
-            <question v-bind:question="'who is the best teacher?'"
-            v-bind:answer1="'derek'"
-            v-bind:answer2="'jace'"
-            v-bind:answer3="'DJ'"> </question>
-            <question v-bind:question="'who is the best teacher?'"
-            v-bind:answer1="'derek'"
-            v-bind:answer2="'jace'"
-            v-bind:answer3="'DJ'"> </question>  
-            <question v-bind:question="'who is the best teacher?'"
-            v-bind:answer1="'derek'"
-            v-bind:answer2="'jace'"
-            v-bind:answer3="'DJ'"> </question>    
+            v-bind:answer3="'DJ'" > </question>     -->
             <button @click="submitAnswers">Submit Quiz</button>
         </div>
         <!-- Score page -->
