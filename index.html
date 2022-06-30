@@ -17,7 +17,23 @@
 
         <!-- Quiz page -->
         <div v-else-if="page == 'quiz'" id="quiz">
-            <question v-bind:""> </question>
+            <question v-bind:question="'who is the best teacher?'"
+            v-bind:answer1="'derek'"
+            v-bind:answer2="'jace'"
+            v-bind:answer3="'DJ'"> </question>
+            <question v-bind:question="'who is the best teacher?'"
+            v-bind:answer1="'derek'"
+            v-bind:answer2="'jace'"
+            v-bind:answer3="'DJ'"> </question>
+            <question v-bind:question="'who is the best teacher?'"
+            v-bind:answer1="'derek'"
+            v-bind:answer2="'jace'"
+            v-bind:answer3="'DJ'"> </question>  
+            <question v-bind:question="'who is the best teacher?'"
+            v-bind:answer1="'derek'"
+            v-bind:answer2="'jace'"
+            v-bind:answer3="'DJ'"> </question>    
+            <button @click="submitAnswers">Submit Quiz</button>
         </div>
         <!-- Score page -->
         <div id="score">

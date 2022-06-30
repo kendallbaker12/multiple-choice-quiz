@@ -53,9 +53,29 @@ Vue.component("title-page", {
 Vue.component("question", {
     template: `
        <div>
-        {{question}} <br>
-        <input type="checkbox">
-    `
+        <h2>{{question}}</h2> <br>
+            <input type="radio" id="answer1" @click="pushAnswer">
+            <label for="answer1">{{answer1}}</label> <br>
+            <input type="radio" id="answer2">
+            <label for="answer2">{{answer2}}</label> <br>
+            <input type="radio" id="answer3">
+            <label for="answer3">{{answer3}}</label> <br>
+        </div>
+    `,
+    data: function () {
+        return {
+        }
+    },
+    methods: {},
+    props: {
+        "question": String,
+        "answer1": String,
+        "answer2": String,
+        "answer3": String,
+        "playerAnswers": Array,
+        "pushAnswer": Function
+    }
+})
 
 var app = new Vue({
     el: "#app",
