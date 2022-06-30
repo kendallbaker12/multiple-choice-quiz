@@ -11,12 +11,13 @@
 
         <!-- Title page -->
         <div v-if="page == 'title'" id="title">
-            <title-page v-bind:page="page"></title-page>
+            <title-page v-bind:page="page"
+                        v-bind:toquiz="toquiz"></title-page>
         </div>
 
         <!-- Quiz page -->
         <div v-else-if="page == 'quiz'" id="quiz">
-            <p>test</p>
+            <question v-bind:""> </question>
         </div>
         <!-- Score page -->
         <div id="score">

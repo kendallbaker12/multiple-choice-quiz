@@ -33,19 +33,30 @@ var QUIZ = [
 Vue.component("title-page", {
     template: `
     <div>
-        <p> Welcome to the best quiz ever</p><b>
-        <button v-on:click="page == 'quiz'">Click Me!</button>
+        <p> Welcome to the best quiz ever</p><br>
+        <button v-on:click= toquiz()>Click Me!</button>
     </div>
     `,
-    data: {
-        return: {
-            page: "title",
+    data: function() {
+        return {
         }
+    },
+    props:{
+        "page": String,
+        "toquiz": Function,
     },
     methods: {
 
     }
 })
+
+Vue.component("question", {
+    template: `
+       <div>
+        {{question}} <br>
+        <input type="checkbox">
+    `
+
 var app = new Vue({
     el: "#app",
     data: {
@@ -54,6 +65,9 @@ var app = new Vue({
         page: "title",
     },
     methods: {
+        toquiz: function(){
+            this.page = 'quiz';
+        },
         // used for showing questions individually
         nextQuestion: function () { },
 
