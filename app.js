@@ -54,28 +54,38 @@ Vue.component("question", {
     template: `
        <div>
         <h2>{{question}}</h2> <br>
-            <input type="radio" name ="favoriteTeacher" id="answer1" v-model='answer1'>
+            <input type="radio" name ="favoriteTeacher" id="answer1" v-model='answerderek'>
             <label for="answer1">{{answer1}}</label> <br>
-            <input type="radio" id="answer2" name ="favoriteTeacher" v-model='answer2'>
+            <input type="radio" id="answer2" name ="favoriteTeacher" v-model='answerJace'>
             <label for="answer2">{{answer2}}</label> <br>
-            <input type="radio" id="answer3" name ="favoriteTeacher" v-model='answer'>
+            <input type="radio" id="answer3" name ="favoriteTeacher" v-model='answerDJ'>
             <label for="answer3">{{answer3}}</label> <br>
             <button v-on:click="pushanswer()">Submit Questions.</button>
         </div>
     `,
     data: function () {
         return {
+            answerderek: false,
+            answerDJ: false,
+            answerJace: false
         }
     },
     methods: {
-
+        pushanswer: function () {
+            if (this.answerJace || this.answerDJ && !this.answerderek) {
+                this.addScore
+            } else {
+                this.subtractScore;
+            }
+        },
     },
     props: {
         "question": String,
         "answer1": String,
         "answer2": String,
         "answer3": String,
-        "pushanswer": Function,
+        "addAnswer": Function,
+        "subtractAnswer": Function,
         "answer": String,
     }
 })
@@ -88,20 +98,20 @@ var app = new Vue({
         page: "title",
         playerScore: 0,
         answer: "",
+        answerderek: false,
+        answerJace: false,
+        answerDJ: false
     },
     methods: {
         toquiz: function () {
             this.page = 'quiz';
         },
-        pushanswer: function () {
-            if (this.answer == "derek") {
-                this.playerScore--;
-                console.log("wrong choice!")
-            } else {
-                this.playerScore++;
-                console.log("good answer!")
-            }
+        addScore: function () {
+            this.playerScore++;
         },
+        subtractScore: function () {
+            this.playerScore--;
+        }
         // used for showing questions individually
         nextQuestion: function () { },
 
