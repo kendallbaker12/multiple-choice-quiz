@@ -30,12 +30,28 @@ var QUIZ = [
 */
 
 
+Vue.component("title-page", {
+    template: `
+    <div>
+        <p> Welcome to the best quiz ever</p><b>
+        <button v-on:click="page == 'quiz'">Click Me!</button>
+    </div>
+    `,
+    data: {
+        return: {
+            page: "title",
+        }
+    },
+    methods: {
 
+    }
+})
 var app = new Vue({
     el: "#app",
     data: {
         // to attach your global quiz variable to a data variable:
         // myQuiz: QUIZ,
+        page: "title",
     },
     methods: {
         // used for showing questions individually

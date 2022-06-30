@@ -10,10 +10,18 @@
         <h1>Multiple Choice Quiz</h1>
 
         <!-- Title page -->
+        <div v-if="page == 'title'" id="title">
+            <title-page v-bind:page="page"></title-page>
+        </div>
 
         <!-- Quiz page -->
-
+        <div v-else-if="page == 'quiz'" id="quiz">
+            <p>test</p>
+        </div>
         <!-- Score page -->
+        <div id="score">
+
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="app.js"></script>
