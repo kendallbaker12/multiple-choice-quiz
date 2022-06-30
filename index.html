@@ -16,23 +16,30 @@
 
         <!-- Quiz page -->
         <div v-else-if="page == 'quiz'" id="quiz">
+            <question v-bind:question="'who is the best teacher?'" v-bind:addscore="addscore" v-bind:answer1="'derek'"
+                v-bind:answer2="'jace'" v-bind:answer3="'DJ'" v-bind:subtractscore="subtractscore"
+                v-bind:answer="answer"> </question>
+            <question v-bind:question="'who is the best teacher?'" v-bind:addscore="addscore"
+                v-bind:subtractscore="subtractscore" v-bind:answer="answer" v-bind:answer1="'derek'"
+                v-bind:answer2="'jace'" v-bind:answer3="'DJ'"> </question>
             <question v-bind:question="'who is the best teacher?'" v-bind:answer1="'derek'" v-bind:answer2="'jace'"
-                v-bind:answer3="'DJ'" v-bind:pushanswer="pushanswer" v-bind:answer="answer" 
-                v-bind:answerderek="answerderek" v-bind:answerDJ="answerDJ" v-bind:answerJace="answerJace"> </question>
+                v-bind:answer3="'DJ'" v-bind:addscore="addscore" v-bind:subtractscore="subtractscore"
+                v-bind:answer="answer"> </question>
             <question v-bind:question="'who is the best teacher?'" v-bind:answer1="'derek'" v-bind:answer2="'jace'"
-                v-bind:answer3="'DJ'" v-bind:pushanswer="pushanswer"v-bind:answer="answer"
-                v-bind:answerderek="answerderek" v-bind:answerDJ="answerDJ" v-bind:answerJace="answerJace"> </question>
+                v-bind:answer3="'DJ'" v-bind:addscore="addscore" v-bind:subtractscore="subtractscore"
+                v-bind:answer="answer"> </question>
             <question v-bind:question="'who is the best teacher?'" v-bind:answer1="'derek'" v-bind:answer2="'jace'"
-                v-bind:answer3="'DJ'" v-bind:pushanswer="pushanswer"v-bind:answer="answer"
-                v-bind:answerderek="answerderek" v-bind:answerDJ="answerDJ" v-bind:answerJace="answerJace"> </question>
+                v-bind:answer3="'DJ'" v-bind:addscore="addscore" v-bind:subtractscore="subtractscore"
+                v-bind:answer="answer"> </question>
             <!-- <question v-bind:question="'who is the best teacher?'"
             v-bind:answer1="'derek'"
             v-bind:answer2="'jace'"
             v-bind:answer3="'DJ'" > </question>     -->
+            <title-page v-bind:page="page" v-bind:toquiz="toscore"></title-page>
         </div>
         <!-- Score page -->
-        <div id="score">
-
+        <div v-else-if="page == 'score'" id="score">
+            {{playerScore}} / 5
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>

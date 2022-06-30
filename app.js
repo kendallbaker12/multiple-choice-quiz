@@ -65,18 +65,21 @@ Vue.component("question", {
     `,
     data: function () {
         return {
-            answerderek: false,
+            answerderek: true,
             answerDJ: false,
             answerJace: false
         }
     },
     methods: {
         pushanswer: function () {
-            if (this.answerJace || this.answerDJ && !this.answerderek) {
-                this.addScore
+            if (this.answerderek) {
+                this.addscore()
+                console.log("hi")
             } else {
-                this.subtractScore;
+                this.subtractscore()
+                console.log("bye")
             }
+
         },
     },
     props: {
@@ -84,8 +87,8 @@ Vue.component("question", {
         "answer1": String,
         "answer2": String,
         "answer3": String,
-        "addAnswer": Function,
-        "subtractAnswer": Function,
+        "addscore": Function,
+        "subtractscore": Function,
         "answer": String,
     }
 })
@@ -98,22 +101,24 @@ var app = new Vue({
         page: "title",
         playerScore: 0,
         answer: "",
-        answerderek: false,
-        answerJace: false,
-        answerDJ: false
     },
     methods: {
         toquiz: function () {
             this.page = 'quiz';
         },
-        addScore: function () {
+        toscore: function () {
+            this.page = 'score';
+        },
+        addscore: function () {
             this.playerScore++;
         },
-        subtractScore: function () {
+        subtractscore: function () {
             this.playerScore--;
-        }
+        },
         // used for showing questions individually
-        nextQuestion: function () { },
+        nextQuestion: function () {
+
+        },
 
         // used for showing questions individually
         previousQuestion: function () { },
